@@ -20,6 +20,7 @@ class DigitsLoginButton extends Component {
   }
 
   buttonPressed() {
+    this.props.buttonPressed && this.props.buttonPressed();
     NativeModules.DigitsManager.launchAuthentication(this.props.options).then((responseData) => {
       console.log("[Digits] Login Successful", responseData);
       this.props.completion(null, responseData);
